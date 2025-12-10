@@ -1,0 +1,74 @@
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+/backend/tmp/
+/backend/vendor/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+/backend/bin/
+/backend/build/
+dist/
+tmp/
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+/frontend/node_modules/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+terraform.tfvars.json
+
+# Docker
+*.pid
+
+# Testing
+coverage.out
+*.coverprofile
+
+# Frontend Assets (optional - uncomment to use CDN only)
+# Uncomment these lines if you want to always use CDN versions instead of local copies
+# /frontend/assets/css/
+# /frontend/assets/js/
+
+# Misc
+*.bak
+*.tmp
+*.temp
