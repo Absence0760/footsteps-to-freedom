@@ -22,7 +22,8 @@ async function handleSubmit(e: Event) {
 		return;
 	}
 
-	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	// Improved email validation regex - requires valid domain with 2+ character TLD
+	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	if (!emailRegex.test(email)) {
 		statusMessage = "Please enter a valid email address.";
 		isSubmitting = false;
@@ -37,7 +38,8 @@ async function handleSubmit(e: Event) {
 		noOfGuests = 1;
 		message = "";
 	} catch (error) {
-		console.error("Error submitting form:", error);
+		// NOTE: In production, send errors to a secure logging service instead of console
+		// Only show generic error messages to users to avoid leaking sensitive information
 		statusMessage = "An error occurred. Please try again.";
 	} finally {
 		isSubmitting = false;

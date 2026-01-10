@@ -35,5 +35,8 @@
 		"unplugin-icons": "0.19.2",
 		"vite": "5.4.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"isomorphic-dompurify": "^2.35.0"
+	}
 }

@@ -1,8 +1,12 @@
 <script lang="ts">
 import { Link, Text } from "$lib/components/atoms";
+import DOMPurify from 'isomorphic-dompurify';
 
 const { data } = $props();
 const member = $derived(data.member);
+
+// Sanitize HTML content to prevent XSS attacks
+const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : '');
 </script>
 
 <svelte:head>
@@ -51,7 +55,7 @@ const member = $derived(data.member);
       lineHeight="1.7"
       textAlign="left"
     >
-      {@html member.fullBio}
+      {@html sanitizedFullBio}
     </Text>
   </div>
 </div>

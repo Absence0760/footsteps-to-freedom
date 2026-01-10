@@ -1,8 +1,12 @@
 <script lang="ts">
 import { Link, Text } from "$lib/components/atoms";
+import DOMPurify from 'isomorphic-dompurify';
 
 const { data } = $props();
 const tour = $derived(data.tour);
+
+// Sanitize HTML content to prevent XSS attacks
+const sanitizedFullTour = $derived(tour ? DOMPurify.sanitize(tour.fullTour) : '');
 </script>
 
 <svelte:head>
@@ -23,10 +27,9 @@ const tour = $derived(data.tour);
       class="bio-image"
       loading="lazy"
     />
-    <p
-    >
-      {@html tour.fullTour}
-  </p>
+    <p>
+      {@html sanitizedFullTour}
+    </p>
   </div>
 </div>
 {:else}
