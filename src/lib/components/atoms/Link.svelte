@@ -1,5 +1,6 @@
 <script lang="ts">
 import { goto } from "$app/navigation";
+import { base } from "$app/paths";
 import { Icon } from "$lib/components/atoms";
 import type { Snippet } from "svelte";
 
@@ -19,7 +20,7 @@ interface Props {
 const {
 	variant = "inline-text",
 	to,
-	href = to || "#",
+	href: externalHref,
 	target = "_self",
 	rel = target === "_blank" ? "noopener noreferrer" : "",
 	icon,
@@ -27,9 +28,13 @@ const {
 	...restProps
 }: Props = $props();
 
-const handleClick = () => {
-	if (to) {
-		goto(to);
+// Prepend base path to internal links
+const href = externalHref || (to ? `${base}${to}` : "#");
+
+const handleClick = (e: MouseEvent) => {
+	if (to && target === "_self") {
+		e.preventDefault();
+		goto(`${base}${to}`);
 	}
 };
 </script>

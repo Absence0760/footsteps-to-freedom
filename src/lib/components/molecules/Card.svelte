@@ -1,5 +1,6 @@
 <script lang="ts">
 import { goto } from "$app/navigation";
+import { base } from "$app/paths";
 import type { IconName } from "$lib/components/atoms";
 import type { Snippet } from "svelte";
 
@@ -16,17 +17,22 @@ interface Props {
 let {
 	variant = "primary",
 	iconType,
-	imageSrc,
+	imageSrc: rawImageSrc,
 	slug = "",
 	children,
 	...restProps
 }: Props = $props();
 
+// Prepend base path to relative image URLs
+const imageSrc = rawImageSrc && rawImageSrc.startsWith('/') && !rawImageSrc.startsWith('//')
+	? `${base}${rawImageSrc}`
+	: rawImageSrc;
+
 let imageAlt = "/image.png";
 let isHovered = $state(false);
 
 function handleClick() {
-	if (slug) goto(`/${slug}`);
+	if (slug) goto(`${base}/${slug}`);
 }
 </script>
 

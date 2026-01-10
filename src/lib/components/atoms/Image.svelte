@@ -1,4 +1,6 @@
 <script lang="ts">
+import { base } from '$app/paths';
+
 interface Props {
 	src: string;
 	alt?: string;
@@ -10,7 +12,7 @@ interface Props {
 }
 
 const {
-	src,
+	src: rawSrc,
 	alt = "/hero-image4.png",
 	width = "100%",
 	height = "auto",
@@ -18,6 +20,9 @@ const {
 	shadow = "var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05))",
 	class: className = "",
 }: Props = $props();
+
+// Prepend base path to relative URLs (starting with /)
+const src = rawSrc.startsWith('/') && !rawSrc.startsWith('//') ? `${base}${rawSrc}` : rawSrc;
 </script>
 
 <img

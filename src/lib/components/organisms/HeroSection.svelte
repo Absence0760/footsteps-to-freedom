@@ -1,4 +1,5 @@
 <script lang="ts">
+import { base } from '$app/paths';
 import { Text } from "$lib/components/atoms";
 import type { Snippet } from "svelte";
 
@@ -8,7 +9,10 @@ interface Props {
 	children?: Snippet;
 }
 
-const { image, alt, children }: Props = $props();
+const { image: rawImage, alt, children }: Props = $props();
+
+// Prepend base path to relative URLs
+const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}${rawImage}` : rawImage;
 </script>
 
 <section class="hero-section" style:background-image={`url(${image})`} aria-label={alt}>
