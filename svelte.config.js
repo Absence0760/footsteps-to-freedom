@@ -20,7 +20,9 @@ function defineConfig() {
 				fallback: "index.html",
 				prerender: { default: true },
 			}),
-
+			paths: {
+				base: process.env.BASE_PATH || '',
+			},
 			inlineStyleThreshold: 0,
 		},
 	};
