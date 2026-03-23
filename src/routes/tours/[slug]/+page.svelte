@@ -23,7 +23,7 @@ const tour = $derived(data.tour);
       <svelte:component this={tour.component} />
     </div>
     <div class="back-link">
-      <Link variant="button" to="/tours">← Back to Tours</Link>
+      <button class="back-button" onclick={() => history.back()}>← Back to Tours</button>
     </div>
   </div>
 </div>
@@ -62,6 +62,22 @@ const tour = $derived(data.tour);
 
   .back-link {
     margin-top: 2rem;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--button-text, #ffffff);
+    background-color: var(--button-primary-bg, #4f46e5);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .back-button:hover {
+    background-color: var(--button-primary-bg-dark, #6366f1);
   }
 
   @media (max-width: 768px) {
