@@ -16,10 +16,11 @@ const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}$
 </script>
 
 <section class="hero-section" style:background-image={`url(${image})`} aria-label={alt}>
-    <div class="hero-content">
-      {#if children}
-        {@render children()}
-      {/if}
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    {#if children}
+      {@render children()}
+    {/if}
   </div>
 </section>
 
@@ -39,29 +40,33 @@ const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}$
     z-index: 1;
   }
 
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+  }
 
   .hero-content {
+    position: relative;
+    z-index: 1;
     text-align: center;
-    color: var(--text-header-dark, #FFFFFF);
     padding: clamp(1.5rem, 4vw, 2rem);
     max-width: 800px;
     margin: 0 auto;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for dark mode */
-    }
-
-    .hero-content {
-      color: var(--text-header-dark, #e5e7eb);
-    }
+  .hero-content :global(.text) {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 600px) {
     .hero-section {
-      height: 50vh; /* Shorter height for mobile */
+      height: 50vh;
     }
 
     .hero-content {
@@ -71,7 +76,7 @@ const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}$
 
   @media (prefers-reduced-motion: reduce) {
     .hero-section {
-      background-attachment: scroll; /* Disable fixed background for accessibility */
+      background-attachment: scroll;
     }
   }
 </style>

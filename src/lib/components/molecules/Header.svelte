@@ -49,12 +49,14 @@ onMount(() => {
     box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 10;
+    --text-header: #ffffff;
   }
 
   .header.scrolled {
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --text-header: #1f2937;
+  }
 
   .logo-container {
     display: flex;
