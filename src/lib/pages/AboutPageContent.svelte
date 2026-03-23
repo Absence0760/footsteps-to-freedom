@@ -152,6 +152,12 @@ const { title = "Meet Our Dedicated Team", ...restProps } = $props();
     margin-top: 2rem;
   }
 
+  .cta-section :global(.text--p) {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .cta-buttons {
     display: flex;
     gap: 1rem;
