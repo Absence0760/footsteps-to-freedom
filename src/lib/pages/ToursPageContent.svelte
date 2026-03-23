@@ -74,12 +74,12 @@ const allTours = Object.values(tourModules).map((mod: any) => mod.metadata);
   }
 
   .tours-section {
-    padding: clamp(2rem, 5vw, 4rem) 0;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
   }
 
   .tour-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(1.5rem, 3vw, 2.5rem);
     justify-items: center;
   }
