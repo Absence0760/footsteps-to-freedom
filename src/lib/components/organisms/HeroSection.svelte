@@ -28,6 +28,7 @@ const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}$
     min-height: 100vh;
     position: relative;
     height: 60vh;
+    padding-top: 5rem;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

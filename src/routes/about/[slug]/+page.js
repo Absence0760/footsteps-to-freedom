@@ -1,23 +1,24 @@
-import { teamMembers } from "$lib/data/team";
 import { error } from "@sveltejs/kit";
 
 export const prerender = true;
 
-// Tell SvelteKit which slugs to prerender
+const teamModules = import.meta.glob('/src/content/team/*.md', { eager: true });
+const allMembers = Object.values(teamModules).map((mod) => mod.metadata);
+
 export function entries() {
-	return teamMembers.map((member) => ({
+	return allMembers.map((member) => ({
 		slug: member.slug,
 	}));
 }
 
 export async function load({ params }) {
-	const member = teamMembers.find((t) => t.slug === params.slug);
-
-	if (!member) {
-		error(404, "member not found");
-	}
-
+	const entry = Object.entries(teamModules).find(([, mod]) => mod.metadata.slug === params.slug);
+	if (!entry) error(404, "Team member not found");
+	const [, mod] = entry;
 	return {
-		member,
+		member: {
+			...mod.metadata,
+			component: mod.default,
+		},
 	};
 }

@@ -1,12 +1,8 @@
 <script lang="ts">
 import { Link, Text } from "$lib/components/atoms";
-import DOMPurify from 'isomorphic-dompurify';
 
 const { data } = $props();
 const member = $derived(data.member);
-
-// Sanitize HTML content to prevent XSS attacks
-const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : '');
 </script>
 
 <svelte:head>
@@ -16,9 +12,6 @@ const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : 
 
 {#if member}
 <div class="bio-page">
-  <Link to="/about">
-    ← Back to About
-  </Link>
   <div class="bio-container">
     <img
       src={member.image}
@@ -47,16 +40,12 @@ const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : 
     >
       {member.role}
     </Text>
-    <Text
-      tag="div"
-      class="bio-content"
-      color="var(--text-body, #4b5563)"
-      fontSize="1rem"
-      lineHeight="1.7"
-      textAlign="left"
-    >
-      {@html sanitizedFullBio}
-    </Text>
+    <div class="bio-content">
+      <svelte:component this={member.component} />
+    </div>
+    <div class="back-link">
+      <Link variant="button" to="/about">← Back to About</Link>
+    </div>
   </div>
 </div>
 {:else}
@@ -67,7 +56,7 @@ const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : 
   .bio-page {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 5rem 2rem 2rem;
     box-sizing: border-box;
     background-color: transparent; /* Remove explicit background */
   }
@@ -92,10 +81,7 @@ const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : 
   }
 
   .back-link {
-    display: inline-block;
-    margin-bottom: 2.5rem; /* Increased spacing */
-    font-size: 1rem;
-    font-weight: 500;
+    margin-top: 2rem;
   }
 
   @media (max-width: 768px) {
@@ -116,9 +102,6 @@ const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : 
       font-size: 1.1rem;
     }
 
-    .back-link {
-      margin-bottom: 2rem; /* Slightly reduced for smaller screens */
-    }
   }
 
   @media (max-width: 480px) {
@@ -143,8 +126,5 @@ const sanitizedFullBio = $derived(member ? DOMPurify.sanitize(member.fullBio) : 
       font-size: 0.95rem;
     }
 
-    .back-link {
-      margin-bottom: 1.5rem; /* Further reduced for mobile */
-    }
   }
 </style>

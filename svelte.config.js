@@ -1,18 +1,20 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import { mdsvex } from 'mdsvex';
 
 export default defineConfig();
 
 /** @type {() => import('@sveltejs/kit').Config} */
 function defineConfig() {
 	return {
+		extensions: ['.svelte', '.md'],
 		compilerOptions: {
 			modernAst: true,
 			warningFilter,
 		},
 		// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 		// for more information about preprocessors
-		preprocess: vitePreprocess(),
+		preprocess: [vitePreprocess(), mdsvex({ extensions: ['.md'] })],
 
 		kit: {
 			// See https://kit.svelte.dev/docs/adapters for more information about adapters.

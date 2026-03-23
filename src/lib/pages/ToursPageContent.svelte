@@ -2,7 +2,9 @@
 import { Link, Text } from "$lib/components/atoms";
 import { Card } from "$lib/components/molecules";
 import { CallToActionSection, HeroSection } from "$lib/components/organisms";
-import { allTours } from "$lib/data/tours";
+
+const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true });
+const allTours = Object.values(tourModules).map((mod: any) => mod.metadata);
 </script>
 
 <div class="page-container">

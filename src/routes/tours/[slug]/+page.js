@@ -1,9 +1,10 @@
-import { allTours } from "$lib/data/tours";
 import { error } from "@sveltejs/kit";
 
 export const prerender = true;
 
-// Tell SvelteKit which slugs to prerender
+const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true });
+const allTours = Object.values(tourModules).map((mod) => mod.metadata);
+
 export function entries() {
 	return allTours.map((tour) => ({
 		slug: tour.slug,
@@ -11,13 +12,13 @@ export function entries() {
 }
 
 export async function load({ params }) {
-	const tour = allTours.find((t) => t.slug === params.slug);
-
-	if (!tour) {
-		error(404, "Tour not found");
-	}
-
+	const entry = Object.entries(tourModules).find(([, mod]) => mod.metadata.slug === params.slug);
+	if (!entry) error(404, "Tour not found");
+	const [, mod] = entry;
 	return {
-		tour,
+		tour: {
+			...mod.metadata,
+			component: mod.default,
+		},
 	};
 }

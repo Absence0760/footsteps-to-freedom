@@ -2,7 +2,8 @@
 import { Link, Text } from "$lib/components/atoms";
 import { Card } from "$lib/components/molecules";
 import { HeroSection } from "$lib/components/organisms";
-import { teamMembers } from "$lib/data/team";
+const teamModules = import.meta.glob('/src/content/team/*.md', { eager: true });
+const teamMembers = Object.values(teamModules).map((mod: any) => mod.metadata);
 
 const { title = "Meet Our Dedicated Team", ...restProps } = $props();
 </script>

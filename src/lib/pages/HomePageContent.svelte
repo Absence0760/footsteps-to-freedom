@@ -6,8 +6,21 @@ import {
 	HeroSection,
 	TestimonialsSection,
 } from "$lib/components/organisms";
-import { allTours } from "$lib/data/tours";
 
+const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true, query: '?raw', import: 'default' });
+
+function parseFrontmatter(raw: string): Record<string, string> {
+	const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+	if (!match) return {};
+	return Object.fromEntries(
+		match[1].split('\n')
+			.map(line => line.match(/^(\w+):\s*"?([^"]*)"?\s*$/))
+			.filter(Boolean)
+			.map(m => [m![1], m![2]])
+	);
+}
+
+const allTours = Object.values(tourModules).map((raw: any) => parseFrontmatter(raw));
 const featuredTours = allTours.slice(0, 3);
 </script>
 

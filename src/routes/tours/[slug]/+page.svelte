@@ -1,12 +1,8 @@
 <script lang="ts">
 import { Link, Text } from "$lib/components/atoms";
-import DOMPurify from 'isomorphic-dompurify';
 
 const { data } = $props();
 const tour = $derived(data.tour);
-
-// Sanitize HTML content to prevent XSS attacks
-const sanitizedFullTour = $derived(tour ? DOMPurify.sanitize(tour.fullTour) : '');
 </script>
 
 <svelte:head>
@@ -15,21 +11,20 @@ const sanitizedFullTour = $derived(tour ? DOMPurify.sanitize(tour.fullTour) : ''
 </svelte:head>
 
 {#if tour}
-<div>
-  <Link to="/tours">
-    ← Back to Tours
-  </Link>
-  
+<div class="page">
   <div class="bio-container">
     <img
       src={tour.image}
-      alt={` ${tour.name}`}
+      alt={tour.name}
       class="bio-image"
       loading="lazy"
     />
-    <p>
-      {@html sanitizedFullTour}
-    </p>
+    <div class="tour-content">
+      <svelte:component this={tour.component} />
+    </div>
+    <div class="back-link">
+      <Link variant="button" to="/tours">← Back to Tours</Link>
+    </div>
   </div>
 </div>
 {:else}
@@ -37,12 +32,16 @@ const sanitizedFullTour = $derived(tour ? DOMPurify.sanitize(tour.fullTour) : ''
 {/if}
 
 <style>
+  .page {
+    padding-top: 5rem;
+    padding-inline: 1rem;
+  }
 
   .bio-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: var(--card-bg, #f7f7f7); 
+    background-color: var(--card-bg, #f7f7f7);
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
   }
@@ -57,6 +56,14 @@ const sanitizedFullTour = $derived(tour ? DOMPurify.sanitize(tour.fullTour) : ''
     border: 3px solid var(--button-primary-bg, #4f46e5);
   }
 
+  .tour-content {
+    line-height: 1.7;
+  }
+
+  .back-link {
+    margin-top: 2rem;
+  }
+
   @media (max-width: 768px) {
     .bio-container {
       padding: 1.5rem;
@@ -66,44 +73,12 @@ const sanitizedFullTour = $derived(tour ? DOMPurify.sanitize(tour.fullTour) : ''
       width: 150px;
       height: 150px;
     }
-
-    .bio-name {
-      font-size: 1.75rem;
-    }
-
-    .bio-role {
-      font-size: 1.1rem;
-    }
-
-    .back-link {
-      margin-bottom: 2rem; /* Slightly reduced for smaller screens */
-    }
   }
 
   @media (max-width: 480px) {
-    .bio-page {
-      padding: 1rem;
-    }
-
     .bio-image {
       width: 120px;
       height: 120px;
-    }
-
-    .bio-name {
-      font-size: 1.5rem;
-    }
-
-    .bio-role {
-      font-size: 1rem;
-    }
-
-    .bio-content {
-      font-size: 0.95rem;
-    }
-
-    .back-link {
-      margin-bottom: 1.5rem; /* Further reduced for mobile */
     }
   }
 </style>
