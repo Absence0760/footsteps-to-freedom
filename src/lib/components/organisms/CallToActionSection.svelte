@@ -49,6 +49,12 @@ const {
     box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
   }
 
+  .call-to-action-section :global(.text--p) {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .cta-button {
     margin-top: 1.5rem;
   }
