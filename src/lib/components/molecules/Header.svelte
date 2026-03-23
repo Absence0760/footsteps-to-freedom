@@ -8,9 +8,9 @@ onMount(() => {
     const handleScroll = () => {
       scrolled = window.scrollY > 50;
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
+
     // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -21,7 +21,7 @@ onMount(() => {
 <header class="header" class:scrolled>
   <div class="logo-container">
     <Image
-      src="/hero-image4.png"
+      src="/hero-image.png"
       alt="FTF Logo"
       width="50px"
       height="50px"

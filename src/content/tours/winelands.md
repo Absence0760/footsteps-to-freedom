@@ -3,7 +3,7 @@ id: winelands
 slug: winelands
 name: Full-day Winelands Tour
 description: "Exploring wines, gardens, Cape Dutch architecture, cheeses, craft beer, artisanal chocolate, or a collection of rare motor vehicles housed on a magnificent wine estate."
-image: https://placehold.co/400x200/4f46e5/ffffff?text=Tour+4
+image: /protea.jpg
 price: $1400
 duration: 6 Days
 ---

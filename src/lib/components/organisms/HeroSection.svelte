@@ -5,17 +5,25 @@ import type { Snippet } from "svelte";
 
 interface Props {
 	image: string;
+	mobileImage?: string;
 	alt: string;
 	children?: Snippet;
 }
 
-const { image: rawImage, alt, children }: Props = $props();
+const { image: rawImage, mobileImage: rawMobileImage, alt, children }: Props = $props();
 
 // Prepend base path to relative URLs
-const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}${rawImage}` : rawImage;
+const resolve = (src: string) => src.startsWith('/') && !src.startsWith('//') ? `${base}${src}` : src;
+const image = resolve(rawImage);
+const mobileImage = rawMobileImage ? resolve(rawMobileImage) : null;
 </script>
 
-<section class="hero-section" style:background-image={`url(${image})`} aria-label={alt}>
+<section
+  class="hero-section"
+  style:--hero-bg={`url(${image})`}
+  style:--hero-mobile-bg={mobileImage ? `url(${mobileImage})` : `url(${image})`}
+  aria-label={alt}
+>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     {#if children}
@@ -30,6 +38,7 @@ const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}$
     position: relative;
     height: 60vh;
     padding-top: 5rem;
+    background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -67,6 +76,7 @@ const image = rawImage.startsWith('/') && !rawImage.startsWith('//') ? `${base}$
   @media (max-width: 600px) {
     .hero-section {
       height: 50vh;
+      background-image: var(--hero-mobile-bg);
     }
 
     .hero-content {

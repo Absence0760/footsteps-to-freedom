@@ -3,7 +3,7 @@ id: overberg
 slug: overberg
 name: Full-day Hermanus/Overberg tour
 description: "Travel to the seaside town of Hermanus to enjoy a day of whales, wine, magnificent fynbos, ocean walks & views."
-image: https://placehold.co/400x200/4f46e5/ffffff?text=Tour+4
+image: /spring-buck-standing-in-yellow-flowers.jpg
 price: $1400
 duration: 6 Days
 ---

@@ -3,7 +3,7 @@ id: city-walking
 slug: city-walking
 name: City Walking
 description: Trace through the bustling streets of downtown Cape Town
-image: /cape-town.jpg
+image: /downtown-cape-town.jpg
 price: $1500
 duration: 3 hours
 ---

@@ -3,7 +3,7 @@ id: jewish-heritage
 slug: jewish-heritage
 name: Jewish Heritage city walking tour
 description: The walking tour captures both the history of the city as well as the heritage and influence of the Jewish community
-image: https://placehold.co/400x200/4f46e5/ffffff?text=Tour+4
+image: /downtown-with-table-mountain.jpg
 price: $1400
 duration: 6 Days
 ---

@@ -13,7 +13,7 @@ interface Props {
 
 const {
 	src: rawSrc,
-	alt = "/hero-image4.png",
+	alt = "/hero-image.png",
 	width = "100%",
 	height = "auto",
 	borderRadius = "0.5rem",

@@ -3,7 +3,7 @@ id: table-mountain
 slug: table-mountain
 name: Table Mountain
 description: "Once ascended, there are many splendid views from the various look-out points of the ocean and the magnificent vistas beyond."
-image: https://placehold.co/400x200/4f46e5/ffffff?text=Tour+3
+image: /scenic-view-of-man-sitting-on-rock-table-mountain.jpg
 price: $1200
 duration: 5 Days
 ---

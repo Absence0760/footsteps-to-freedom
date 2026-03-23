@@ -3,7 +3,7 @@ id: langa-township
 slug: langa-township
 name: Half-day Langa Township tour
 description: "Join us as we visit one of Cape Town's colourful townships, Langa."
-image: https://placehold.co/400x200/4f46e5/ffffff?text=Tour+4
+image: /south-africa-flag-traveler.png
 price: $1400
 duration: 6 Days
 ---

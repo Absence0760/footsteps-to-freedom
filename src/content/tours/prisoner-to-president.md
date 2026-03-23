@@ -3,7 +3,7 @@ id: prisoner-to-president
 slug: prisoner-to-president
 name: "Mandela in Cape Town: from Prisoner to President"
 description: Visit iconic landmarks and hear powerful stories from the American Civil Rights Movement.
-image: /downtown.jpg
+image: /cape-town-from-table-mountain.jpg
 price: $1800
 duration: 8 Days
 ---

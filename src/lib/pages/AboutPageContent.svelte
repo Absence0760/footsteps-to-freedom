@@ -10,7 +10,7 @@ const { title = "Meet Our Dedicated Team", ...restProps } = $props();
 
 <div class="page-container">
   <!-- Hero Section -->
-  <HeroSection image="/cape-town.jpg" alt="Cape Town heritage sites">
+  <HeroSection image="/runner-with-table-mountain.jpg" mobileImage="/vertical-africa.jpg" alt="Cape Town heritage sites">
     <Text variant="h1">Our Story</Text>
     <Text variant="h2">Passionate guides sharing the human stories of history</Text>
   </HeroSection>
