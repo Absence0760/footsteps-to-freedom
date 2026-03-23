@@ -51,7 +51,13 @@ const stars = $derived(
     box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 0.5rem;
+    min-height: 460px;
+  }
+
+  .review :global(.text--p) {
+    flex: 1;
   }
 
   .rating {
