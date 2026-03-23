@@ -27,17 +27,17 @@
 
   <!-- Contact Info Section -->
   <section class="info-section">
-    <Text variant="h3">Other Ways to Reach Us</Text>
-    <div class="info-grid">
-      <div class="info-item">
+    <div class="info-card">
+      <Text variant="h3">Other Ways to Reach Us</Text>
+      <div class="info-row">
         <Text variant="h4">Email</Text>
         <Text variant="p">info@footstepstofreedom.co.za</Text>
       </div>
-      <div class="info-item">
+      <div class="info-row">
         <Text variant="h4">Location</Text>
         <Text variant="p">Cape Town, South Africa</Text>
       </div>
-      <div class="info-item">
+      <div class="info-row">
         <Text variant="h4">Response Time</Text>
         <Text variant="p">We typically respond within 24 hours</Text>
       </div>
@@ -65,26 +65,40 @@
   }
 
   .info-section {
-    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
-    background: var(--gradient-section);
-    border-radius: 1rem;
-    text-align: center;
-    max-width: 900px;
-    margin: 2rem auto 0;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: clamp(1.5rem, 3vw, 2rem);
-    margin-top: 2rem;
-  }
-
-  .info-item {
-    padding: 1.5rem;
+  .info-card {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     background: var(--card-bg);
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-sm);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    gap: 1rem;
+  }
+
+  .info-row:first-of-type {
+    margin-top: 1rem;
+  }
+
+  .info-row :global(.text--h4) {
+    text-align: left;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  .info-row :global(.text--p) {
+    text-align: right;
+    margin-bottom: 0;
   }
 
   @media (max-width: 768px) {
