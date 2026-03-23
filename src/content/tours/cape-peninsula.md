@@ -3,7 +3,7 @@ id: cape-peninsula
 slug: cape-peninsula
 name: Full-day Cape Peninsula tour
 description: This tour showcases the diversity and magnificence of The Cape Peninsula
-image: /kirstenbosch-national-botanical-garden.jpg
+image: /ostriches.jpg
 price: $1400
 duration: 6 Days
 ---

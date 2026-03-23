@@ -26,7 +26,7 @@ const featuredTours = allTours.slice(0, 3);
 
 <div class="page-container">
   <!-- Enhanced Hero Section -->
-  <HeroSection image="/downtown-cape-town.jpg" mobileImage="/vertical-distant-table-mountain.jpg" alt="Scenic Cape Town landscape">
+  <HeroSection image="/zebra-giraffe-standing-rear-green-trees.jpg" mobileImage="/vertical-distant-table-mountain.jpg" alt="Scenic Cape Town landscape">
     <Text variant="h1">Walk Through History. Discover Freedom.</Text>
     <Text variant="h2">Experience South Africa's rich heritage with authentic, guided tours</Text>
     <div class="hero-buttons">

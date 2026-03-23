@@ -6,7 +6,7 @@
 
 <div class="page-container">
   <!-- Hero Section -->
-  <HeroSection image="/waterfall-mpumalanga.jpg" mobileImage="/vertical-penguin.jpg" alt="Contact Footsteps to Freedom">
+  <HeroSection image="/elephants-walking-out-of-dried-pong.jpg" mobileImage="/vertical-penguin.jpg" alt="Contact Footsteps to Freedom">
     <Text variant="h1">Get in Touch</Text>
     <Text variant="h2">Let's plan your unforgettable journey together</Text>
   </HeroSection>

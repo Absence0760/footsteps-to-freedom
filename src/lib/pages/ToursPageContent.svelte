@@ -9,7 +9,7 @@ const allTours = Object.values(tourModules).map((mod: any) => mod.metadata);
 
 <div class="page-container">
   <!-- Hero Section -->
-  <HeroSection image="/scenic-view-of-man-sitting-on-rock-table-mountain.jpg" mobileImage="/vertical-man-surfing.jpg" alt="South Africa tour destinations">
+  <HeroSection image="/rhino.jpg" mobileImage="/vertical-man-surfing.jpg" alt="South Africa tour destinations">
     <Text variant="h1">Our Inspiring Tours</Text>
     <Text variant="h2">Step back in time and walk the paths of resilience, struggle, and triumph</Text>
   </HeroSection>
