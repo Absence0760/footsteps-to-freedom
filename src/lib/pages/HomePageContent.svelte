@@ -54,7 +54,6 @@ const featuredTours = allTours.slice(0, 3);
   <!-- Tours Showcase -->
   <section class="tours-showcase">
     <Text variant="h2">Featured Tours</Text>
-    <Text variant="p">Discover our most popular journeys through South African history</Text>
 
     <div class="tours-grid">
       {#each featuredTours as tour}
@@ -119,7 +118,7 @@ const featuredTours = allTours.slice(0, 3);
   }
 
   .mission-section {
-    padding: clamp(2rem, 5vw, 4rem) 0;
+    padding: clamp(1.5rem, 3vw, 2rem) 0 0;
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
