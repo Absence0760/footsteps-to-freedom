@@ -128,16 +128,20 @@ const { title = "Meet Our Dedicated Team", ...restProps } = $props();
   }
 
   .team-section {
-    padding: clamp(2rem, 5vw, 4rem) 0;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
     text-align: center;
   }
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: clamp(1.5rem, 3vw, 2rem);
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     margin-top: 2rem;
+  }
+
+  .team-grid :global(.card.primary) {
+    max-width: 100%;
+    min-width: 0;
   }
 
   .cta-section {
@@ -158,7 +162,11 @@ const { title = "Meet Our Dedicated Team", ...restProps } = $props();
   }
 
   @media (max-width: 768px) {
-    .team-grid,
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
     .philosophy-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;

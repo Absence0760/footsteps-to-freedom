@@ -2,7 +2,7 @@
 name: Mary-Ann Wenham
 role: Tour Guide & Ex-Teacher
 bio: Mary-Ann instills a love of history and storytelling in our tours.
-image: /mary-ann-wenham.png
+image: /vertical-woman-with-lions-head.jpg
 slug: mary-ann-wenham
 ---
 

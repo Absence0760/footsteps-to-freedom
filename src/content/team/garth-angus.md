@@ -2,7 +2,7 @@
 name: Garth Angus
 role: Founder & Tour Guide
 bio: Garth founded Footsteps to Freedom and leads tours with a passion for history and the outdoors.
-image: /garth-angus.png
+image: /lion.jpg
 slug: garth-angus
 ---
 
