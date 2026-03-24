@@ -60,9 +60,9 @@ const featuredTours = allTours.slice(0, 3);
         <Card variant="primary" imageSrc={tour.image} slug={"tours/" + tour.slug}>
           <Text variant="h3">{tour.name}</Text>
           <Text variant="p">{tour.description}</Text>
-          <div class="tour-meta">
-            <Text variant="caption">{tour.duration}</Text>
-          </div>
+          {#if tour.category}
+            <span class="category-tag">{tour.category}</span>
+          {/if}
         </Card>
       {/each}
     </div>
@@ -143,12 +143,17 @@ const featuredTours = allTours.slice(0, 3);
     justify-items: center;
   }
 
-  .tour-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  .category-tag {
+    display: inline-block;
     margin-top: auto;
-    color: var(--text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: var(--color-accent, #b8860b);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .tours-cta {

@@ -33,13 +33,9 @@ const allTours = Object.values(tourModules).map((mod: any) => mod.metadata);
         >
           <Text variant="h3">{tour.name}</Text>
           <Text variant="p">{tour.description}</Text>
-          <div class="tour-meta">
-            <Text variant="caption">{tour.duration}</Text>
-            {#if tour.price}
-              <Text variant="caption">•</Text>
-              <Text variant="caption">{tour.price}</Text>
-            {/if}
-          </div>
+          {#if tour.category}
+            <span class="category-tag">{tour.category}</span>
+          {/if}
         </Card>
       {/each}
     </div>
@@ -84,13 +80,17 @@ const allTours = Object.values(tourModules).map((mod: any) => mod.metadata);
     justify-items: center;
   }
 
-  .tour-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  .category-tag {
+    display: inline-block;
     margin-top: auto;
-    color: var(--text-muted);
-    flex-wrap: wrap;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: var(--color-accent, #b8860b);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .flexibility-section {

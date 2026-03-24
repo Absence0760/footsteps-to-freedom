@@ -4,8 +4,7 @@ slug: garden-route
 name: Garden Route touring
 description: "Explore the unique and varied corners of the Western Cape province."
 image: /waterfall-mpumalanga.jpg
-price: $1400
-duration: 6 Days
+category: Nature & Scenery
 ---
 
 We can also put together your garden route tour. You tell us how much time you have, what your interests are and we will design something for you to these unique and varied corner of the Western Cape province.

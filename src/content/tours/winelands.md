@@ -4,8 +4,7 @@ slug: winelands
 name: Full-day Winelands Tour
 description: "Exploring wines, gardens, Cape Dutch architecture, cheeses, craft beer, artisanal chocolate, or a collection of rare motor vehicles housed on a magnificent wine estate."
 image: /protea.jpg
-price: $1400
-duration: 6 Days
+category: Food & Wine
 ---
 
 Your guide will collect you for your accommodation and travel to the Cape Winelands areas of Stellenbosch, Paarl and Franschhoek. Depending on your personal interests, you will have a day exploring wines, gardens, Cape Dutch architecture, cheeses, craft beer, artisanal chocolate, or a collection of rare motor vehicles housed on a magnificent wine estate.

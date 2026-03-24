@@ -4,8 +4,7 @@ slug: city-walking
 name: City Walking
 description: Trace through the bustling streets of downtown Cape Town
 image: /downtown-cape-town.jpg
-price: $1500
-duration: 3 hours
+category: Historical
 ---
 
 The Footsteps to Freedom historic city walking tour is a unique opportunity to explore the vibrant and historic city of Cape Town, South Africa. This three-hour walking tour takes you through the bustling streets of downtown Cape Town, allowing you to experience the sights, sounds, and smells of this historic city first-hand. Your knowledgeable and experienced guide will provide an in-depth historical overview of the city, highlighting four key periods of its history: from the voyages of discovery until Dutch (VOC) settlement, VOC occupation of the Cape, British colonialism, and independent South Africa.

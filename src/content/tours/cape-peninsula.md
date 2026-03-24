@@ -4,8 +4,7 @@ slug: cape-peninsula
 name: Full-day Cape Peninsula tour
 description: This tour showcases the diversity and magnificence of The Cape Peninsula
 image: /ostriches.jpg
-price: $1400
-duration: 6 Days
+category: Nature & Wildlife
 ---
 
 This tour showcases the diversity and magnificence of The Cape Peninsula. A full-day private tour to the scenic Cape of Good Hope, visiting points of interest en route. Your guide will meet you in the foyer of your hotel, together you will consider the weather and discuss the numerous options and plan your unique day.
