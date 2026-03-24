@@ -6,26 +6,31 @@ let name = $state("");
 let email = $state("");
 let noOfGuests = $state(1);
 let message = $state("");
-let statusMessage = $state("");
+let toast = $state<{ message: string; type: "success" | "error" } | null>(null);
+let toastTimer: ReturnType<typeof setTimeout>;
 let isSubmitting = $state(false);
+
+function showToast(message: string, type: "success" | "error") {
+	clearTimeout(toastTimer);
+	toast = { message, type };
+	toastTimer = setTimeout(() => (toast = null), 5000);
+}
 
 let buttonLabel = $derived(isSubmitting ? "Sending..." : "Send Message");
 
 async function handleSubmit(e: Event) {
 	e.preventDefault();
 	isSubmitting = true;
-	statusMessage = "";
 
 	if (!name || !email || !message) {
-		statusMessage = "Please fill in all required fields.";
+		showToast("Please fill in all required fields.", "error");
 		isSubmitting = false;
 		return;
 	}
 
-	// Improved email validation regex - requires valid domain with 2+ character TLD
 	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	if (!emailRegex.test(email)) {
-		statusMessage = "Please enter a valid email address.";
+		showToast("Please enter a valid email address.", "error");
 		isSubmitting = false;
 		return;
 	}
@@ -44,16 +49,16 @@ async function handleSubmit(e: Event) {
 		});
 		const data = await res.json();
 		if (data.success) {
-			statusMessage = "Thank you for your message! We will get back to you soon.";
+			showToast("Thank you for your message! We'll get back to you soon.", "success");
 			name = "";
 			email = "";
 			noOfGuests = 1;
 			message = "";
 		} else {
-			statusMessage = "Something went wrong. Please try again.";
+			showToast("Something went wrong. Please email us at info@footstepstofreedom.co.za", "error");
 		}
 	} catch (error) {
-		statusMessage = "An error occurred. Please try again.";
+		showToast("An error occurred. Please email us at info@footstepstofreedom.co.za", "error");
 	} finally {
 		isSubmitting = false;
 	}
@@ -106,8 +111,10 @@ async function handleSubmit(e: Event) {
   />
 
 
-  {#if statusMessage}
-    <Text>{statusMessage}</Text>
+  {#if toast}
+    <div class="toast toast--{toast.type}" role="alert">
+      {toast.message}
+    </div>
   {/if}
 </form>
 
@@ -127,5 +134,30 @@ async function handleSubmit(e: Event) {
 
   .contact-form:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .toast {
+    padding: 0.875rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    animation: slide-in 0.2s ease;
+  }
+
+  .toast--success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  .toast--error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 </style>
