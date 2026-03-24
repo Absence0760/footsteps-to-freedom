@@ -176,6 +176,10 @@ onDestroy(() => clearInterval(interval));
     .slides {
       grid-template-columns: 1fr;
     }
+
+    .slide:not(:first-child) {
+      display: none;
+    }
   }
 
   .arrow {
