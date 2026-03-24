@@ -1,4 +1,5 @@
 <script lang="ts">
+import { base } from '$app/paths';
 import { Link, Text } from "$lib/components/atoms";
 
 const { data } = $props();
@@ -14,7 +15,7 @@ const tour = $derived(data.tour);
 <div class="page">
   <div class="bio-container">
     <img
-      src={tour.image}
+      src="{base}{tour.image}"
       alt={tour.name}
       class="bio-image"
       loading="lazy"
