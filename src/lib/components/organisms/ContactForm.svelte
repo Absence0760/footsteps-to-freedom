@@ -31,15 +31,28 @@ async function handleSubmit(e: Event) {
 	}
 
 	try {
-		await new Promise((resolve) => setTimeout(resolve, 1500));
-		statusMessage = "Thank you for your message! We will get back to you soon.";
-		name = "";
-		email = "";
-		noOfGuests = 1;
-		message = "";
+		const res = await fetch("https://api.web3forms.com/submit", {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Accept: "application/json" },
+			body: JSON.stringify({
+				access_key: "01753924-01ed-44cd-8810-41b6c47e539e",
+				name,
+				email,
+				guests: noOfGuests,
+				message,
+			}),
+		});
+		const data = await res.json();
+		if (data.success) {
+			statusMessage = "Thank you for your message! We will get back to you soon.";
+			name = "";
+			email = "";
+			noOfGuests = 1;
+			message = "";
+		} else {
+			statusMessage = "Something went wrong. Please try again.";
+		}
 	} catch (error) {
-		// NOTE: In production, send errors to a secure logging service instead of console
-		// Only show generic error messages to users to avoid leaking sensitive information
 		statusMessage = "An error occurred. Please try again.";
 	} finally {
 		isSubmitting = false;
