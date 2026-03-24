@@ -1,4 +1,5 @@
 <script lang="ts">
+import { base } from '$app/paths';
 import { Link, Text } from "$lib/components/atoms";
 
 const { data } = $props();
@@ -14,7 +15,7 @@ const member = $derived(data.member);
 <div class="bio-page">
   <div class="bio-container">
     <img
-      src={member.image}
+      src="{base}{member.image}"
       alt={`Portrait of ${member.name}, ${member.role}`}
       class="bio-image"
       loading="lazy"
