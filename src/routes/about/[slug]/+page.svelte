@@ -44,7 +44,7 @@ const member = $derived(data.member);
       <svelte:component this={member.component} />
     </div>
     <div class="back-link">
-      <Link variant="button" to="/about">← Back to About</Link>
+      <button class="back-button" onclick={() => history.back()}>← Back</button>
     </div>
   </div>
 </div>
@@ -82,6 +82,22 @@ const member = $derived(data.member);
 
   .back-link {
     margin-top: 2rem;
+  }
+
+  .back-button {
+    display: inline-block;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.375rem;
+    background: var(--button-primary-bg, #4f46e5);
+    color: var(--button-primary-text, #fff);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+
+  .back-button:hover {
+    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
