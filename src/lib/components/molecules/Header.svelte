@@ -1,21 +1,8 @@
 <script lang="ts">
 import { Image, Link } from "$lib/components/atoms";
-import { onMount } from "svelte"
+import { asset } from "$lib/utils/assets";
 
-let scrolled = false;
 let menuOpen = false;
-
-onMount(() => {
-    const handleScroll = () => {
-      scrolled = window.scrollY > 50;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
 
 function toggleMenu() {
   menuOpen = !menuOpen;
@@ -26,7 +13,7 @@ function closeMenu() {
 }
 </script>
 
-<header class="header" class:scrolled>
+<header class="header">
   <nav class="nav nav-left">
     <Link variant="header" to="/">Home</Link>
     <Link variant="header" to="/about">Why Footsteps to Freedom</Link>
@@ -34,7 +21,7 @@ function closeMenu() {
 
   <div class="logo-container">
     <Image
-      src="/hero-image.png"
+      src={asset('/logo.png')}
       alt="FTF Logo"
       width="50px"
       height="50px"
@@ -82,17 +69,11 @@ function closeMenu() {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 1rem 2rem;
-    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    z-index: 100;
-    --text-header: #ffffff;
-    min-height: 80px;
-  }
-
-  .header.scrolled {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
     --text-header: #1f2937;
+    min-height: 80px;
   }
 
   .logo-container {
