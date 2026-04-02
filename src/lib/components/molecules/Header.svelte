@@ -27,6 +27,11 @@ function closeMenu() {
 </script>
 
 <header class="header" class:scrolled>
+  <nav class="nav nav-left">
+    <Link variant="header" to="/">Home</Link>
+    <Link variant="header" to="/about">Why Footsteps to Freedom</Link>
+  </nav>
+
   <div class="logo-container">
     <Image
       src="/hero-image.png"
@@ -34,13 +39,16 @@ function closeMenu() {
       width="50px"
       height="50px"
     />
-    <Link variant="header" to="/">FOOTSTEPS TO FREEDOM</Link>
+    <div class="brand-text">
+      <Link variant="header" to="/" class="company-name">FOOTSTEPS TO FREEDOM</Link>
+      <p class="payoff-line">Discover the true spirit of South Africa</p>
+    </div>
   </div>
 
-  <nav class="nav">
-    <Link variant="header" to="/about">About</Link>
+  <nav class="nav nav-right">
     <Link variant="header" to="/tours">Tours</Link>
     <Link variant="header" to="/contact">Contact</Link>
+    <Link variant="header" to="/faqs">Reviews</Link>
   </nav>
 
   <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu" aria-expanded={menuOpen}>
@@ -54,9 +62,11 @@ function closeMenu() {
   <!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
   <div class="modal-overlay" onclick={closeMenu}>
     <nav class="modal-nav" onclick={(e) => e.stopPropagation()}>
-      <Link variant="header" to="/about" onclick={closeMenu}>About</Link>
+      <Link variant="header" to="/" onclick={closeMenu}>Home</Link>
+      <Link variant="header" to="/about" onclick={closeMenu}>Why Footsteps to Freedom</Link>
       <Link variant="header" to="/tours" onclick={closeMenu}>Tours</Link>
       <Link variant="header" to="/contact" onclick={closeMenu}>Contact</Link>
+      <Link variant="header" to="/faqs" onclick={closeMenu}>Reviews</Link>
     </nav>
   </div>
 {/if}
@@ -68,14 +78,15 @@ function closeMenu() {
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 1rem 2rem;
     box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 100;
     --text-header: #ffffff;
+    min-height: 80px;
   }
 
   .header.scrolled {
@@ -88,12 +99,41 @@ function closeMenu() {
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .company-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .payoff-line {
+    margin: 0;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-header);
+    opacity: 0.9;
   }
 
   .nav {
     display: flex;
     gap: 0.1rem;
     align-items: center;
+  }
+
+  .nav-left {
+    justify-self: start;
+  }
+
+  .nav-right {
+    justify-self: end;
   }
 
   /* Hamburger button — hidden on desktop */
@@ -162,6 +202,12 @@ function closeMenu() {
   }
 
   @media (max-width: 640px) {
+    .header {
+      grid-template-columns: 1fr auto;
+      justify-content: space-between;
+      display: flex;
+    }
+
     .nav {
       display: none;
     }
@@ -170,8 +216,16 @@ function closeMenu() {
       display: flex;
     }
 
+    .logo-container {
+      justify-self: start;
+    }
+
     .logo-container :global(.link.header) {
       font-size: 0.8rem;
+    }
+
+    .payoff-line {
+      font-size: 0.65rem;
     }
   }
 </style>
