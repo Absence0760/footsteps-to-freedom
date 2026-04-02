@@ -35,7 +35,7 @@ function closeMenu() {
   <nav class="nav nav-right">
     <Link variant="header" to="/tours">Tours</Link>
     <Link variant="header" to="/contact">Contact</Link>
-    <Link variant="header" to="/faqs">Reviews</Link>
+    <Link variant="header" to="/reviews">Reviews</Link>
   </nav>
 
   <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu" aria-expanded={menuOpen}>
@@ -53,7 +53,7 @@ function closeMenu() {
       <Link variant="header" to="/about" onclick={closeMenu}>Why Footsteps to Freedom</Link>
       <Link variant="header" to="/tours" onclick={closeMenu}>Tours</Link>
       <Link variant="header" to="/contact" onclick={closeMenu}>Contact</Link>
-      <Link variant="header" to="/faqs" onclick={closeMenu}>Reviews</Link>
+      <Link variant="header" to="/reviews" onclick={closeMenu}>Reviews</Link>
     </nav>
   </div>
 {/if}
