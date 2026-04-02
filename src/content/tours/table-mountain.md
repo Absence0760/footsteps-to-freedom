@@ -1,10 +1,11 @@
 ---
 id: table-mountain
 slug: table-mountain
-name: Table Mountain
-description: "Once ascended, there are many splendid views from the various look-out points of the ocean and the magnificent vistas beyond."
+name: Climb Table Mountain
+description: Conquer one of the world's seven natural wonders — hike to the summit or ride the cable car.
 image: /scenic-view-of-man-sitting-on-rock-table-mountain.jpg
 category: Adventure
+duration: half-day
 ---
 
 Guests have the option of either hiking up Table Mountain (enquire about the different route options) or taking the cable car up. If taking the cable car, we pre-purchase tickets for our guests to avoid the queues (which can be long in the busy seasons).

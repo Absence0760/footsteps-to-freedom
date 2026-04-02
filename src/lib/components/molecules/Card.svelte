@@ -11,6 +11,7 @@ interface Props {
 	iconType?: IconName;
 	imageSrc?: string;
 	slug?: string;
+	onCardClick?: () => void;
 	children: Snippet;
 }
 
@@ -19,6 +20,7 @@ let {
 	iconType,
 	imageSrc: rawImageSrc,
 	slug = "",
+	onCardClick,
 	children,
 	...restProps
 }: Props = $props();
@@ -32,18 +34,23 @@ let imageAlt = "/image.png";
 let isHovered = $state(false);
 
 function handleClick() {
-	if (slug) goto(`${base}/${slug}`);
+	if (onCardClick) {
+		onCardClick();
+	} else if (slug) {
+		goto(`${base}/${slug}`);
+	}
 }
 </script>
 
 <div
   class="card {variant}"
   class:hovered={isHovered}
-  class:clickable={slug}
-  role={slug ? "button" : undefined}
-  tabindex={slug ? 0 : undefined}
+  class:clickable={!!slug || !!onCardClick}
+  role={(slug || onCardClick) ? "button" : undefined}
+  tabindex={(slug || onCardClick) ? 0 : undefined}
   aria-labelledby="card-title-{variant}"
   onclick={handleClick}
+  onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(); } }}
   onmouseover={() => (isHovered = true)}
   onmouseout={() => (isHovered = false)}
   onfocus={() => (isHovered = true)}

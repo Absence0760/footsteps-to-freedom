@@ -2,9 +2,10 @@
 id: cape-peninsula
 slug: cape-peninsula
 name: Full-day Cape Peninsula tour
-description: This tour showcases the diversity and magnificence of The Cape Peninsula
+description: Penguins, dramatic coastlines, and the wild Cape of Good Hope — all in one unforgettable day.
 image: /ostriches.jpg
 category: Nature & Wildlife
+duration: full-day
 ---
 
 This tour showcases the diversity and magnificence of The Cape Peninsula. A full-day private tour to the scenic Cape of Good Hope, visiting points of interest en route. Your guide will meet you in the foyer of your hotel, together you will consider the weather and discuss the numerous options and plan your unique day.
