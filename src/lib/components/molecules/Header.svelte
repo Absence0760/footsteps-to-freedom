@@ -27,7 +27,7 @@ function closeMenu() {
       height="50px"
     />
     <div class="brand-text">
-      <Link variant="header" to="/" class="company-name">FOOTSTEPS TO FREEDOM</Link>
+      <Link variant="header" to="/">FOOTSTEPS TO FREEDOM</Link>
       <p class="payoff-line">Discover the true spirit of South Africa</p>
     </div>
   </div>
@@ -90,12 +90,7 @@ function closeMenu() {
     align-items: center;
   }
 
-  .company-name {
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-
-  .payoff-line {
+.payoff-line {
     margin: 0;
     font-size: 0.75rem;
     font-style: italic;
