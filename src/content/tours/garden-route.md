@@ -5,6 +5,7 @@ name: Garden Route touring
 description: "Explore the unique and varied corners of the Western Cape province."
 image: /waterfall-mpumalanga.jpg
 category: Nature & Scenery
+duration: curated
 ---
 
 We can also put together your garden route tour. You tell us how much time you have, what your interests are and we will design something for you to these unique and varied corner of the Western Cape province.

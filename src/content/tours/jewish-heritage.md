@@ -5,6 +5,7 @@ name: Jewish Heritage city walking tour
 description: The walking tour captures both the history of the city as well as the heritage and influence of the Jewish community
 image: /downtown-with-table-mountain.jpg
 category: Cultural Heritage
+duration: half-day
 ---
 
 Jews have been an extremely influential part in Cape Town and have made important contributions to the commercial, cultural and civic life of the city. Through art galleries and libraries, schools, through active participation in politics (the city has had six Jewish mayors), as well as through their very vocal opposition to Apartheid, the Cape Town Jewish community has made a lasting impact.
