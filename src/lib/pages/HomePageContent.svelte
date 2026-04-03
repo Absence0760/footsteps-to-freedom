@@ -30,7 +30,7 @@ const heroSlides = [
 		image: '/downtown-with-table-mountain.jpg',
 		mobileImage: '/vertical-woman-with-lions-head.jpg',
 		alt: 'Downtown Cape Town with Table Mountain',
-		caption: "Lion's Head, Cape Town",
+		caption: "Table Mountain, Cape Town",
 	},
 ];
 
