@@ -23,8 +23,8 @@ function closeMenu() {
     <Image
       src={asset('/logo.png')}
       alt="FTF Logo"
-      width="50px"
-      height="50px"
+      width="65px"
+      height="65px"
     />
     <div class="brand-text">
       <Link variant="header" to="/">FOOTSTEPS TO FREEDOM</Link>
