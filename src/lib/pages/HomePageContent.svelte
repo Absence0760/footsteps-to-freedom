@@ -3,9 +3,36 @@ import { Link, Text } from "$lib/components/atoms";
 import { Card } from "$lib/components/molecules";
 import {
 	CallToActionSection,
-	HeroSection,
+	HeroSlideshow,
 	TestimonialsSection,
 } from "$lib/components/organisms";
+
+const heroSlides = [
+	{
+		image: '/cape-town-from-table-mountain.jpg',
+		mobileImage: '/vertical-distant-table-mountain.jpg',
+		alt: 'Cape Town skyline viewed from Table Mountain',
+		caption: 'Cape Town, Western Cape',
+	},
+	{
+		image: '/zebra-giraffe-standing-rear-green-trees.jpg',
+		mobileImage: '/zebra-giraffe-standing-rear-green-trees.jpg',
+		alt: 'Zebra and giraffe among green trees',
+		caption: 'South African wildlife',
+	},
+	{
+		image: '/sandy-beach-with-table-mountain.jpg',
+		mobileImage: '/vertical-man-surfing.jpg',
+		alt: 'Sandy beach with Table Mountain backdrop',
+		caption: 'Atlantic Seaboard',
+	},
+	{
+		image: '/downtown-with-table-mountain.jpg',
+		mobileImage: '/vertical-woman-with-lions-head.jpg',
+		alt: 'Downtown Cape Town with Table Mountain',
+		caption: "Lion's Head, Cape Town",
+	},
+];
 
 const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true, query: '?raw', import: 'default' });
 
@@ -25,8 +52,8 @@ const featuredTours = allTours.slice(0, 3);
 </script>
 
 <div class="page-container">
-  <!-- Enhanced Hero Section -->
-  <HeroSection image="/zebra-giraffe-standing-rear-green-trees.jpg" mobileImage="/vertical-distant-table-mountain.jpg" alt="Scenic Cape Town landscape">
+  <!-- Hero Slideshow -->
+  <HeroSlideshow slides={heroSlides} interval={5000}>
     <Text variant="h1">Walk Through History. Discover Freedom.</Text>
     <Text variant="h2">Experience South Africa's rich heritage with authentic, guided tours</Text>
     <div class="hero-buttons">
@@ -37,7 +64,7 @@ const featuredTours = allTours.slice(0, 3);
         style="--button-primary-bg: var(--secondary); --button-primary-hover-bg: var(--secondary-hover);"
       >Contact Us</Link>
     </div>
-  </HeroSection>
+  </HeroSlideshow>
 
   <!-- Mission/Story Section -->
   <section class="mission-section">
