@@ -3,9 +3,37 @@ import { Link, Text } from "$lib/components/atoms";
 import { Card } from "$lib/components/molecules";
 import {
 	CallToActionSection,
-	HeroSection,
+	HeroSlideshow,
 	TestimonialsSection,
 } from "$lib/components/organisms";
+import type { HeroSlide } from "$lib/components/organisms";
+
+const heroSlides: HeroSlide[] = [
+	{
+		image: '/cape-town-from-table-mountain.jpg',
+		mobileImage: '/vertical-distant-table-mountain.jpg',
+		alt: 'Aerial view of Cape Town city with the ocean beyond',
+		caption: 'Cape Town from Table Mountain',
+	},
+	{
+		image: '/sandy-beach-with-table-mountain.jpg',
+		mobileImage: '/vertical-woman-with-lions-head.jpg',
+		alt: 'Sandy beach with Table Mountain in the background',
+		caption: 'Clifton Beach, Cape Town',
+	},
+	{
+		image: '/elephants-walking-out-of-dried-pong.jpg',
+		mobileImage: '/vertical-africa.jpg',
+		alt: 'Elephants walking across a dry African landscape',
+		caption: 'African Wildlife',
+	},
+	{
+		image: '/scenic-view-of-man-sitting-on-rock-table-mountain.jpg',
+		mobileImage: '/vertical-man-surfing.jpg',
+		alt: 'Scenic view of a person sitting on the rocks of Table Mountain',
+		caption: 'Table Mountain, Cape Town',
+	},
+];
 
 const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true, query: '?raw', import: 'default' });
 
@@ -26,7 +54,7 @@ const featuredTours = allTours.slice(0, 3);
 
 <div class="page-container">
   <!-- Enhanced Hero Section -->
-  <HeroSection image="/zebra-giraffe-standing-rear-green-trees.jpg" mobileImage="/vertical-distant-table-mountain.jpg" alt="Scenic Cape Town landscape">
+  <HeroSlideshow slides={heroSlides}>
     <Text variant="h1">Walk Through History. Discover Freedom.</Text>
     <Text variant="h2">Experience South Africa's rich heritage with authentic, guided tours</Text>
     <div class="hero-buttons">
@@ -37,7 +65,7 @@ const featuredTours = allTours.slice(0, 3);
         style="--button-primary-bg: var(--secondary); --button-primary-hover-bg: var(--secondary-hover);"
       >Contact Us</Link>
     </div>
-  </HeroSection>
+  </HeroSlideshow>
 
   <!-- Mission/Story Section -->
   <section class="mission-section">
