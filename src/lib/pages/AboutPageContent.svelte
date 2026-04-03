@@ -1,12 +1,27 @@
 <script lang="ts">
 import { base } from '$app/paths';
-import { Link, Text } from "$lib/components/atoms";
-import { HeroSection } from "$lib/components/organisms";
+import { Link, Text } from "$lib/components/atoms"; // Link used in CTA buttons
+import { HeroSection, TeamMemberModal } from "$lib/components/organisms";
 
 const teamModules = import.meta.glob('/src/content/team/*.md', { eager: true });
-const teamMembers = Object.values(teamModules).map((mod: any) => mod.metadata);
+const teamMembers = Object.values(teamModules).map((mod: any) => ({
+  ...mod.metadata,
+  component: mod.default,
+}));
 
-const { title = "Meet Our Dedicated Team", ...restProps } = $props();
+const { title = "Meet Our Dedicated Team" } = $props();
+
+let selectedMember: typeof teamMembers[number] | null = $state(null);
+
+function openModal(member: typeof teamMembers[number]) {
+  selectedMember = member;
+  if (typeof document !== 'undefined') document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  selectedMember = null;
+  if (typeof document !== 'undefined') document.body.style.overflow = '';
+}
 
 const resolve = (src: string) =>
   src.startsWith('/') && !src.startsWith('//') ? `${base}${src}` : src;
@@ -91,7 +106,7 @@ const resolve = (src: string) =>
           <p class="team-member__role">{member.role}</p>
           <h3 class="team-member__name">{member.name}</h3>
           <p class="team-member__bio">{member.bio}</p>
-          <Link variant="button" to="/about/{member.slug}">Read Full Bio</Link>
+          <button class="bio-btn" onclick={() => openModal(member)}>Read Full Bio</button>
         </div>
       </div>
     {/each}
@@ -117,6 +132,8 @@ const resolve = (src: string) =>
     </div>
   </div>
 </div>
+
+<TeamMemberModal member={selectedMember} onClose={closeModal} />
 
 <style>
   /* ── Mission / founding story ───────────────────────────────────── */
@@ -369,6 +386,25 @@ const resolve = (src: string) =>
     line-height: 1.8;
     margin: 0;
     max-width: 50ch;
+  }
+
+  /* ── Bio button ─────────────────────────────────────────────────── */
+  .bio-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    align-self: flex-start;
+  }
+
+  .bio-btn:hover {
+    background: var(--primary-hover);
   }
 
   /* ── CTA ────────────────────────────────────────────────────────── */

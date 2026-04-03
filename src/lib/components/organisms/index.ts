@@ -8,4 +8,5 @@ export { default as TestimonialsSection } from "./TestimonialsSection.svelte";
 export { default as StoriesSection } from "./StoriesSection.svelte";
 export { default as HeroSection } from "./HeroSection.svelte";
 export { default as TourModal } from "./TourModal.svelte";
+export { default as TeamMemberModal } from "./TeamMemberModal.svelte";
 export { default as HeroSlideshow } from "./HeroSlideshow.svelte";
