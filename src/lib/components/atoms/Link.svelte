@@ -14,6 +14,7 @@ interface Props {
 	rel?: string;
 	icon?: IconName;
 	to?: string;
+	style?: string;
 	children?: Snippet;
 }
 
