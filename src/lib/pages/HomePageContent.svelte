@@ -34,21 +34,6 @@ const heroSlides = [
 	},
 ];
 
-const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true, query: '?raw', import: 'default' });
-
-function parseFrontmatter(raw: string): Record<string, string> {
-	const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-	if (!match) return {};
-	return Object.fromEntries(
-		match[1].split('\n')
-			.map(line => line.match(/^(\w+):\s*"?([^"]*)"?\s*$/))
-			.filter(Boolean)
-			.map(m => [m![1], m![2]])
-	);
-}
-
-const allTours = Object.values(tourModules).map((raw: any) => parseFrontmatter(raw));
-const featuredTours = allTours.slice(0, 3);
 </script>
 
 <div class="page-container">
@@ -75,27 +60,6 @@ const featuredTours = allTours.slice(0, 3);
     </Text>
     <div class="mission-cta">
       <Link variant="inline-text" to="/about">Learn More About Us</Link>
-    </div>
-  </section>
-
-  <!-- Tours Showcase -->
-  <section class="tours-showcase">
-    <Text variant="h2">Featured Tours</Text>
-
-    <div class="tours-grid">
-      {#each featuredTours as tour}
-        <Card variant="primary" imageSrc={tour.image} slug={"tours/" + tour.slug}>
-          <Text variant="h3">{tour.name}</Text>
-          <Text variant="p">{tour.description}</Text>
-          {#if tour.category}
-            <span class="category-tag">{tour.category}</span>
-          {/if}
-        </Card>
-      {/each}
-    </div>
-
-    <div class="tours-cta">
-      <Link variant="button" to="/tours">View All Tours</Link>
     </div>
   </section>
 
@@ -155,39 +119,6 @@ const featuredTours = allTours.slice(0, 3);
     margin-top: 1.5rem;
   }
 
-  .tours-showcase {
-    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
-    background: var(--gradient-section);
-    border-radius: 1rem;
-    text-align: center;
-  }
-
-  .tours-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-    margin: 2rem 0;
-    justify-items: center;
-  }
-
-  .category-tag {
-    display: inline-block;
-    margin-top: auto;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    background: var(--color-accent, #b8860b);
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .tours-cta {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
   .values-section {
     padding: clamp(2rem, 5vw, 4rem) 0;
     text-align: center;
@@ -207,10 +138,6 @@ const featuredTours = allTours.slice(0, 3);
   }
 
   @media (max-width: 768px) {
-    .tours-grid {
-      grid-template-columns: 1fr;
-    }
-
     .value-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
@@ -225,9 +152,5 @@ const featuredTours = allTours.slice(0, 3);
     }
   }
 
-  @media (max-width: 600px) {
-    .tours-showcase {
-      padding: clamp(1.5rem, 4vw, 2rem) clamp(0.75rem, 2vw, 1rem);
-    }
-  }
+
 </style>

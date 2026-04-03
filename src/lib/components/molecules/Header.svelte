@@ -56,7 +56,7 @@ function closeMenu() {
       <Link variant="header" to="/reviews" onclick={closeMenu}>Reviews</Link>
     </nav>
   </div>
-{/if}
+{/if} 
 
 <style>
   .header {
