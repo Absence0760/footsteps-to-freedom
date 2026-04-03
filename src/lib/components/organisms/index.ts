@@ -7,3 +7,4 @@ export { default as FeaturesSection } from "./FeaturesSection.svelte";
 export { default as TestimonialsSection } from "./TestimonialsSection.svelte";
 export { default as StoriesSection } from "./StoriesSection.svelte";
 export { default as HeroSection } from "./HeroSection.svelte";
+export { default as HeroSlideshow } from "./HeroSlideshow.svelte";
