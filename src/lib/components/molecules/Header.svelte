@@ -1,6 +1,10 @@
 <script lang="ts">
-import { Image, Link } from "$lib/components/atoms";
-import { asset } from "$lib/utils/assets";
+import { base } from '$app/paths';
+import { Link } from "$lib/components/atoms";
+
+const logoSrc = `/logo.png`.startsWith('/') && !`/logo.png`.startsWith('//')
+  ? `${base}/logo.png`
+  : '/logo.png';
 
 let menuOpen = false;
 
@@ -20,12 +24,7 @@ function closeMenu() {
   </nav>
 
   <div class="logo-container">
-    <Image
-      src={asset('/logo.png')}
-      alt="FTF Logo"
-      width="65px"
-      height="65px"
-    />
+    <img src={logoSrc} alt="Footsteps to Freedom logo" class="logo-img" />
     <div class="brand-text">
       <Link variant="header" to="/">FOOTSTEPS TO FREEDOM</Link>
       <p class="payoff-line">Discover the true spirit of South Africa</p>
@@ -74,6 +73,14 @@ function closeMenu() {
     z-index: 100;
     --text-header: #1f2937;
     min-height: 80px;
+  }
+
+  .logo-img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
   }
 
   .logo-container {
