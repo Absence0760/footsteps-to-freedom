@@ -83,9 +83,35 @@ pnpm build            # Production build → build/
 pnpm preview          # Preview build on :8888
 pnpm check            # Type-check
 pnpm check:watch      # Type-check in watch mode
+pnpm test             # Run tests once
+pnpm test:watch       # Run tests in watch mode
 pnpm storybook        # Storybook on :9999
 pnpm build-storybook  # Build static Storybook
 ```
+
+## Verification
+
+**Always run these checks before considering work complete:**
+
+```bash
+pnpm check            # Must pass — catches type errors and Svelte compiler issues
+pnpm test             # Must pass — catches content, utility, and data loading regressions
+pnpm build            # Must succeed — verifies the static build works end-to-end
+```
+
+If any step fails, fix the errors before committing. `pnpm check` and `pnpm test` are fast; run them after every non-trivial change.
+
+## Testing
+
+Tests use **vitest** (configured in `vite.config.ts`). Test files live next to the code they test as `*.test.ts`.
+
+Current test coverage:
+- **Content integrity** (`src/content/content.test.ts`): validates all tour and team markdown frontmatter, checks images exist in `static/`, ensures slugs are unique and match filenames
+- **Asset utility** (`src/lib/utils/assets.test.ts`): tests base path prepending for GitHub Pages
+- **Tour data loading** (`src/routes/tours/[slug]/page.test.ts`): tests `entries()` and `load()` functions, including 404 handling
+- **Team data loading** (`src/routes/about/[slug]/page.test.ts`): tests `entries()` and `load()` functions, including 404 handling
+
+When adding new content or utilities, add corresponding tests.
 
 ## Conventions
 
@@ -94,8 +120,32 @@ pnpm build-storybook  # Build static Storybook
 - All routes are prerendered (`prerender.default: true` in svelte.config.js)
 - Use `src/lib/utils/assets.ts` to resolve static asset paths — never hardcode `/static/...`; the `BASE_PATH` env var adjusts paths for GitHub Pages subdirectory hosting
 - Component stories live in `src/stories/` as `*.stories.svelte`
-- CSS design tokens live in `src/theme.css`; use them via CSS variables rather than hardcoded values
+- CSS design tokens live in `src/theme.css`; use them via CSS variables (e.g., `var(--primary)`, `var(--text-body)`) rather than hardcoded values
 - Contact page sets `ssr: false` due to Web3Forms client-only requirements
+- New components go in the appropriate atomic level: `atoms/` for primitives, `molecules/` for composites, `organisms/` for full sections
+- Page-level content components go in `src/lib/pages/` and are named `*PageContent.svelte`
+
+## Common Tasks
+
+### Adding a new tour
+1. Create `src/content/tours/<slug>.md` with frontmatter: `id`, `slug`, `name`, `description`, `image`, `category`
+2. Add the tour image to `static/`
+3. The tour auto-renders at `/tours/<slug>` — no route changes needed
+
+### Adding a team member
+1. Create `src/content/team/<slug>.md` with frontmatter: `id`, `slug`, `name`, `role`, `bio`, `image`
+2. Add the team member photo to `static/`
+3. The bio auto-renders at `/about/<slug>` — no route changes needed
+
+### Adding a new page
+1. Create `src/routes/<page>/+page.svelte`
+2. Create the content component in `src/lib/pages/<Page>PageContent.svelte`
+3. Import and render the content component from the route file
+
+### Modifying styles
+- Design tokens (colors, spacing, typography) are in `src/theme.css`
+- Global styles in `src/app.css`
+- Component-scoped styles use `<style>` blocks within `.svelte` files
 
 ## Deployment
 
@@ -108,3 +158,4 @@ pnpm build-storybook  # Build static Storybook
 - Target branch: `main`
 - Keep PRs focused; one feature or fix per PR
 - Draft PRs are fine for work-in-progress
+- Run `pnpm check && pnpm build` before opening a PR

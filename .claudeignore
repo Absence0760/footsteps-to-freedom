@@ -1,0 +1,31 @@
+# Build output
+build/
+dist/
+.output/
+.svelte-kit/
+storybook-static/
+
+# Dependencies
+node_modules/
+
+# Static images (binary files — not useful in context)
+static/*.jpg
+static/*.jpeg
+static/*.png
+static/*.gif
+static/*.svg
+static/*.webp
+static/*.ico
+
+# Lock files
+pnpm-lock.yaml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Storybook logs
+*storybook.log
+
+# Vercel
+.vercel/
