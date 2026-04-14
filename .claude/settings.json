@@ -6,8 +6,6 @@
       "Bash(pnpm build*)",
       "Bash(pnpm check*)",
       "Bash(pnpm preview*)",
-      "Bash(pnpm storybook*)",
-      "Bash(pnpm build-storybook*)",
       "Bash(git status*)",
       "Bash(git log*)",
       "Bash(git diff*)",

@@ -3,7 +3,6 @@ build/
 dist/
 .output/
 .svelte-kit/
-storybook-static/
 
 # Dependencies
 node_modules/
@@ -23,9 +22,6 @@ pnpm-lock.yaml
 # OS files
 .DS_Store
 Thumbs.db
-
-# Storybook logs
-*storybook.log
 
 # Vercel
 .vercel/

@@ -10,7 +10,6 @@
 - **Adapters**: `@sveltejs/adapter-static` (GitHub Pages), `@sveltejs/adapter-vercel` (Vercel)
 - **Styling**: normalize.css + custom CSS variables in `src/theme.css`, global styles in `src/app.css`
 - **Icons**: unplugin-icons with `@iconify-json/material-symbols`
-- **Component explorer**: Storybook 8
 - **Markdown**: mdsvex (for tour and team member content)
 - **Forms**: Web3Forms API for contact form submissions
 - **XSS sanitization**: isomorphic-dompurify
@@ -47,7 +46,6 @@ src/
   content/
     tours/*.md               # Tour content with YAML frontmatter
     team/*.md                # Team member bios with YAML frontmatter
-  stories/                   # Storybook stories
   app.css                    # Global styles
   theme.css                  # Design tokens (colors, typography, shadows)
   app.d.ts
@@ -85,8 +83,6 @@ pnpm check            # Type-check
 pnpm check:watch      # Type-check in watch mode
 pnpm test             # Run tests once
 pnpm test:watch       # Run tests in watch mode
-pnpm storybook        # Storybook on :9999
-pnpm build-storybook  # Build static Storybook
 ```
 
 ## Verification
@@ -119,7 +115,6 @@ When adding new content or utilities, add corresponding tests.
 - TypeScript throughout; `lang="ts"` on all `<script>` blocks
 - All routes are prerendered (`prerender.default: true` in svelte.config.js)
 - Use `src/lib/utils/assets.ts` to resolve static asset paths — never hardcode `/static/...`; the `BASE_PATH` env var adjusts paths for GitHub Pages subdirectory hosting
-- Component stories live in `src/stories/` as `*.stories.svelte`
 - CSS design tokens live in `src/theme.css`; use them via CSS variables (e.g., `var(--primary)`, `var(--text-body)`) rather than hardcoded values
 - Contact page sets `ssr: false` due to Web3Forms client-only requirements
 - New components go in the appropriate atomic level: `atoms/` for primitives, `molecules/` for composites, `organisms/` for full sections
