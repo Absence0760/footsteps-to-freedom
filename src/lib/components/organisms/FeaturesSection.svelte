@@ -45,12 +45,7 @@ const {
 </script>
 
 <section>
-  <Text
-    level={2}
-    color="var(--text-heading, #1f2937)"
-    textAlign="center"
-    marginBottom="2rem"
-  >
+  <Text variant="h2" style="margin-bottom: 2rem;">
     Why Choose Footsteps To Freedom
   </Text>
   <div class="features-grid">
@@ -61,15 +56,10 @@ const {
           color="var(--button-primary-bg, #4f46e5)"
           ariaLabel={feature.title}
         />
-        <Text
-          level={3}
-          color="var(--text-heading, #1f2937)"
-          fontSize="1.25rem"
-          marginBottom="0.5rem"
-        >
+        <Text variant="h3" style="font-size: 1.25rem; margin-bottom: 0.5rem;">
           {feature.title}
         </Text>
-        <Text color="var(--text-body, #4b5563)" fontSize="0.875rem">
+        <Text variant="caption" style="font-size: 0.875rem;">
           {feature.description}
         </Text>
       </div>

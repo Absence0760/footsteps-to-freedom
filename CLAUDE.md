@@ -147,10 +147,15 @@ When adding new content or utilities, add corresponding tests.
 - **GitHub Pages**: push to `main` triggers `deploy.yml`, which builds with `BASE_PATH='/<repo-name>'` and deploys `build/`
 - The `build/.nojekyll` file is created at build time to bypass Jekyll processing
 - Vercel adapter is installed as an alternative deployment target
+- **Workflow**: develop on `dev`, merge to `main` when ready to deploy. No PRs — direct merge.
 
-## Pull Request Guidelines
+## CI
 
-- Target branch: `main`
-- Keep PRs focused; one feature or fix per PR
-- Draft PRs are fine for work-in-progress
-- Run `pnpm check && pnpm build` before opening a PR
+- `test.yml` runs on push to `main`/`dev`: type check → tests → build
+- `claude.yml` runs when `@claude` is mentioned in issues/comments (requires `ANTHROPIC_API_KEY` secret and `CLAUDE_ALLOWED_USERS` variable in GitHub repo settings)
+
+## Custom Claude Commands
+
+- `/add-tour <name>` — scaffold a new tour markdown file with frontmatter and content
+- `/add-team-member <name>` — scaffold a new team member bio
+- `/verify` — run the full check → test → build pipeline and report results

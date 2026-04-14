@@ -15,6 +15,7 @@ interface Props {
 	icon?: IconName;
 	to?: string;
 	style?: string;
+	onclick?: (e: MouseEvent) => void;
 	children?: Snippet;
 }
 
@@ -25,6 +26,7 @@ const {
 	target = "_self",
 	rel = target === "_blank" ? "noopener noreferrer" : "",
 	icon,
+	onclick,
 	children,
 	...restProps
 }: Props = $props();
@@ -37,6 +39,7 @@ const handleClick = (e: MouseEvent) => {
 		e.preventDefault();
 		goto(`${base}${to}`);
 	}
+	onclick?.(e);
 };
 </script>
 

@@ -5,6 +5,8 @@ interface Props {
 	variant?: "h1" | "h2" | "h3" | "h4" | "p" | "caption" | "label";
 	tag?: string;
 	id?: string;
+	class?: string;
+	style?: string;
 	children?: Snippet;
 }
 

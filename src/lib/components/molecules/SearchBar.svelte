@@ -27,12 +27,13 @@ const {
     label="Search tours"
   >
     <Icon
+      icon="tour"
       size="1.25rem"
       color="var(--text-body, #4b5563)"
     />
   </Input>
   <Button
-    primary
+    variant="primary"
     onclick={() => onSearch(query)}
     label="Submit search"
   >

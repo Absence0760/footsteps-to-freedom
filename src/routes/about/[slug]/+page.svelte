@@ -23,21 +23,14 @@ const member = $derived(data.member);
     <Text
       tag="h1"
       class="bio-name"
-      color="var(--text-heading, #1f2937)"
-      fontSize="2rem"
-      fontWeight="bold"
-      marginBottom="1rem"
-      textAlign="center"
+      style="color: var(--text-heading, #1f2937); font-size: 2rem; font-weight: bold; margin-bottom: 1rem; text-align: center;"
     >
       {member.name}
     </Text>
     <Text
       tag="p"
       class="bio-role"
-      color="var(--text-body, #4b5563)"
-      fontSize="1.25rem"
-      marginBottom="1.5rem"
-      textAlign="center"
+      style="color: var(--text-body, #4b5563); font-size: 1.25rem; margin-bottom: 1.5rem; text-align: center;"
     >
       {member.role}
     </Text>

@@ -2,6 +2,7 @@ import { error } from "@sveltejs/kit";
 
 export const prerender = true;
 
+/** @type {Record<string, any>} */
 const tourModules = import.meta.glob('/src/content/tours/*.md', { eager: true });
 const allTours = Object.values(tourModules).map((mod) => mod.metadata);
 

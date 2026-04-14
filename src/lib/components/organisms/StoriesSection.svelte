@@ -50,12 +50,7 @@ const {
 </script>
 
 <section>
-  <Text
-    level={2}
-    color="var(--text-heading, #1f2937)"
-    textAlign="center"
-    marginBottom="2rem"
-  >
+  <Text variant="h2" style="margin-bottom: 2rem;">
     Inspiring Stories from History
   </Text>
   <div class="stories-grid">
@@ -69,20 +64,15 @@ const {
           borderRadius="0.5rem"
           shadow="var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"
         />
-        <Text
-          level={3}
-          color="var(--text-heading, #1f2937)"
-          fontSize="1.25rem"
-          marginBottom="0.5rem"
-        >
+        <Text variant="h3" style="font-size: 1.25rem; margin-bottom: 0.5rem;">
           {story.title}
         </Text>
-        <Text color="var(--text-body, #4b5563)" fontSize="0.875rem" marginBottom="1rem">
+        <Text variant="caption" style="font-size: 0.875rem; margin-bottom: 1rem;">
           {story.snippet}
         </Text>
         <Link
           href={story.link}
-          color="var(--button-primary-bg, #4f46e5)"
+          style="color: var(--button-primary-bg, #4f46e5);"
         >
           Read More
         </Link>
