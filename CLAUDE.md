@@ -108,3 +108,7 @@ pnpm build-storybook  # Build static Storybook
 - Target branch: `main`
 - Keep PRs focused; one feature or fix per PR
 - Draft PRs are fine for work-in-progress
+
+## Merging & branch protection
+
+`main` follows the estate "sealed main + CI gate" standard: every change reaches `origin/main` through a PR — **no direct pushes** (enforced on admins, including the owner). There are **0 required approvals**. Force-pushes, branch deletion, and unresolved conversations are blocked; history is linear. This repo has no functional test/build CI on PRs yet, so there is no required **`CI gate`** status check — when CI lands, add an aggregator job named `CI gate` (that `needs:` the CI jobs) to each functional workflow to make it the merge gate. Commit locally per-piece, but land via a PR. (`deploy.yml` still fires on the merge commit — a merge to `main` is itself a push.)
