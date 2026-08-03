@@ -16,8 +16,8 @@ importers:
         specifier: 1.2.88
         version: 1.2.88
       '@storybook/addon-a11y':
-        specifier: 8.2.9
-        version: 8.2.9(storybook@8.3.7)
+        specifier: 8.3.7
+        version: 8.3.7(storybook@8.3.7)
       '@storybook/addon-essentials':
         specifier: 8.6.14
         version: 8.6.14(@types/react@18.3.27)(storybook@8.3.7)
@@ -695,10 +695,10 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@storybook/addon-a11y@8.2.9':
-    resolution: {integrity: sha512-9zm0Ecn2KUUKZbRsQM5l2KcQ8RHK6a9eqdQtOMjGagrdUvUstcf7XjBmV1W6PQE2Urj93ciz1cgx4T1AYQyKtA==}
+  '@storybook/addon-a11y@8.3.7':
+    resolution: {integrity: sha512-Y579YVYGBN/Svjx7eSOJqhEqBiB6+IEjBOZBjC+jFzyRBefOqZOwt/rXaqsd9f+JI5isdOMFZdwvXbRiR4lLwg==}
     peerDependencies:
-      storybook: ^8.2.9
+      storybook: ^8.3.7
 
   '@storybook/addon-actions@8.2.9':
     resolution: {integrity: sha512-eh2teOqjga7aoClDVV+/b1gHJqsPwjiU1t+Hg/l4i2CkaBUNdYMEL90nR6fgReOdvvL5YhcPwJ8w38f9TrQcoQ==}
@@ -730,10 +730,10 @@ packages:
     peerDependencies:
       storybook: ^8.6.14
 
-  '@storybook/addon-highlight@8.2.9':
-    resolution: {integrity: sha512-qdcazeNQoo9QKIq+LJJZZXvFZoLn+i4uhbt1Uf9WtW6oU/c1qxORGVD7jc3zsxbQN9nROVPbJ76sfthogxeqWA==}
+  '@storybook/addon-highlight@8.3.7':
+    resolution: {integrity: sha512-9C+sKvD1jyaT1gAmEgyBOrJuVVURru9iPvXX7/jJRoj2CIIgB9poH2cCVgXD0M3rtNy14F4WoHDB7Ebmnlg/zw==}
     peerDependencies:
-      storybook: ^8.2.9
+      storybook: ^8.3.7
 
   '@storybook/addon-highlight@8.6.14':
     resolution: {integrity: sha512-4H19OJlapkofiE9tM6K/vsepf4ir9jMm9T+zw5L85blJZxhKZIbJ6FO0TCG9PDc4iPt3L6+aq5B0X29s9zicNQ==}
@@ -1183,8 +1183,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axe-core@4.11.0:
-    resolution: {integrity: sha512-ilYanEU8vxxBexpJd8cWM4ElSQq4QctCLKih0TSfjIfCQTeyH/6zVrmIJfLPrKTKJRbiG+cfnZbQIjAlJmF1jQ==}
+  axe-core@4.12.1:
+    resolution: {integrity: sha512-s7iGf5GaVMxEG0ENN9x+xTr7GFZCb1ZP/1uATUpCEK2X78nDB3RwbtFCo9pGAf9ru+VwoQ464DkaLEeRM08wJA==}
     engines: {node: '>=4'}
 
   axobject-query@4.1.0:
@@ -3279,10 +3279,10 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@storybook/addon-a11y@8.2.9(storybook@8.3.7)':
+  '@storybook/addon-a11y@8.3.7(storybook@8.3.7)':
     dependencies:
-      '@storybook/addon-highlight': 8.2.9(storybook@8.3.7)
-      axe-core: 4.11.0
+      '@storybook/addon-highlight': 8.3.7(storybook@8.3.7)
+      axe-core: 4.12.1
       storybook: 8.3.7
 
   '@storybook/addon-actions@8.2.9(storybook@8.3.7)':
@@ -3346,7 +3346,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-highlight@8.2.9(storybook@8.3.7)':
+  '@storybook/addon-highlight@8.3.7(storybook@8.3.7)':
     dependencies:
       '@storybook/global': 5.0.0
       storybook: 8.3.7
@@ -3927,7 +3927,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axe-core@4.11.0: {}
+  axe-core@4.12.1: {}
 
   axobject-query@4.1.0: {}
 
