@@ -1,6 +1,6 @@
-name: CodeQL
+name: Security
 
-# Static analysis of our own code. Complements .github/workflows/audit.yml
+# Static analysis (SAST) of our own code via CodeQL. Complements .github/workflows/audit.yml
 # (which only catches known CVEs in dependencies). CodeQL finds vulnerabilities
 # in code we write — XSS sinks, prototype pollution, SSRF, hard-coded secrets,
 # unsafe deserialisation, etc. — and (separate language) workflow-injection
@@ -31,7 +31,7 @@ concurrency:
   # (no point analysing the stale SHA). `matrix.language` can't be
   # referenced at workflow level (job context only), and per-language
   # grouping isn't worth the complexity here.
-  group: codeql-${{ github.ref }}
+  group: security-${{ github.ref }}
   cancel-in-progress: true
 
 # Workflow-level permission is the least-privilege baseline; the analyze
@@ -66,6 +66,17 @@ jobs:
         # interpolated into a `run:` block), unpinned action references,
         # and a handful of other GHA-specific sinks. Cheap to run — adds
         # ~30s to the matrix.
+        #
+        # For Python-backed templates (web-python, anything shipping a Lambda
+        # written in Python), add `python` to the matrix:
+        #   language: [javascript-typescript, actions, python]
+        # Python uses `build-mode: none` like the other languages — no
+        # autobuilder needed for the security-and-quality query suite. For
+        # the analyzer to pick the right interpreter (matters when checking
+        # version-specific Python deprecations), also add a setup-python
+        # step before "Initialize CodeQL":
+        #   - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        #     with: { python-version: '3.14' }
         language: [javascript-typescript, actions]
 
     steps:
