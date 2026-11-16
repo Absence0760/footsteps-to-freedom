@@ -16,7 +16,7 @@ You can expect an acknowledgement within 72 hours and a triage decision within 7
 
 This template ships with the following defensive scaffolding:
 
-- **Secret scanning** — `.github/workflows/security.yml` runs gitleaks on every push and PR plus a weekly cron. `.pre-commit-config.yaml` runs the same scan locally before commit.
+- **Secret scanning** — `.github/workflows/secret-scan.yml` runs TruffleHog on every push to main, every PR, and the full history weekly; a verified (live) or unverifiable credential fails it. `.pre-commit-config.yaml` runs gitleaks locally before commit.
 - **Dependency review** — the `dependency-review` job fails any PR that pulls in a high-severity vulnerable dependency.
 - **Static analysis** — `.github/workflows/codeql.yml` runs CodeQL on the configured languages weekly and on PRs.
 - **Automated updates** — `.github/dependabot.yml` opens grouped weekly PRs for npm/pip/terraform/GitHub Actions.
